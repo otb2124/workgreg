@@ -25,9 +25,7 @@ export class VacancyService {
     const isTauri = '__TAURI_INTERNALS__' in window || '__TAURI__' in window;
     
     // Route to local Python sidecar for Desktop, or Cloud API for Web
-    this.baseUrl = isTauri 
-      ? 'http://127.0.0.1:8000' 
-      : 'https://api.yourcloudjobfinder.com';
+    this.baseUrl = 'http://127.0.0.1:8000';
   }
 
   getHealth(): Observable<HealthStatus> {
