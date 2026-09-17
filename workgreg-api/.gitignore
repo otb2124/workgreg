@@ -1,0 +1,30 @@
+# Byte-compiled / Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# PyInstaller build outputs and spec files
+build/
+dist/
+*.manifest
+*.spec
+
+# Environment variables & local databases
+.env
+.env.local
+*.db
+*.sqlite3
+
+# Logs & testing
+*.log
+.pytest_cache/
+.coverage
+htmlcov/

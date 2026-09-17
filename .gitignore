@@ -1,0 +1,20 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+# Top-level dependencies and build outputs
+node_modules/
+dist/
+
+# Local environment configuration
+.env
+.env.local
