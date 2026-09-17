@@ -7,8 +7,9 @@
       "start:frontend": "npm --prefix workgreg-app run tauri dev",
       "dev": "concurrently -k -p \"[{name}]\" -c \"blue,green\" -n \"BACKEND,FRONTEND\" \"npm run start:backend\" \"npm run start:frontend\"",
       
-      "build:sidecar": "powershell -Command \"cd workgreg-api; .\\venv\\Scripts\\pyinstaller --noconfirm --onefile --name app-backend main.py; New-Item -ItemType Directory -Force -Path ..\\workgreg-app\\src-tauri\\bin; Copy-Item -Force .\\dist\\app-backend.exe ..\\workgreg-app\\src-tauri\\bin\\app-backend-x86_64-pc-windows-msvc.exe\"",
-      "build:app": "npm run build:sidecar && npm --prefix workgreg-app run tauri build"
+      "build:api": "powershell -Command \"cd workgreg-api; .\\venv\\Scripts\\pyinstaller --noconfirm --onefile --name app-backend main.py; New-Item -ItemType Directory -Force -Path ..\\workgreg-app\\src-tauri\\bin; Copy-Item -Force .\\dist\\app-backend.exe ..\\workgreg-app\\src-tauri\\bin\\workgreg-api-x86_64-pc-windows-msvc.exe\"",
+      "build:app": "npm --prefix workgreg-app run tauri build",
+      "build": "npm run build:api && npm run build:app"
     },
     "devDependencies": {
       "concurrently": "^10.0.5"

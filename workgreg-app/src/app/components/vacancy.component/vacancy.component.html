@@ -1,0 +1,26 @@
+<main style="padding: 24px; font-family: system-ui, sans-serif; text-align: center;">
+    <h2>Job Finder System</h2>
+    
+    <div style="background: #f4f4f5; padding: 12px; border-radius: 6px; margin: 20px auto; max-width: 400px;">
+      <strong>Backend Status:</strong> {{ status }} 
+      @if (mode) {
+        <span>({{ mode }})</span>
+      }
+    </div>
+
+    <h3>Available Vacancies</h3>
+    <ul style="list-style: none; padding: 0;">
+      @for (job of vacancies; track job.id || $index) {
+        <li style="margin-bottom: 12px; padding: 8px; border-bottom: 1px solid #eee;">
+          <strong>{{ job.title || job.name }}</strong> — {{ job.source || job.company }} 
+          @if (job.location) {
+            <span>({{ job.location }})</span>
+          }
+        </li>
+      }
+    </ul>
+    
+    @if (vacancies.length === 0 && status !== 'Connecting...') {
+      <p style="color: #666;">No vacancies returned from backend.</p>
+    }
+  </main>
