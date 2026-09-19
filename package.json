@@ -4,12 +4,16 @@
     "private": true,
     "scripts": {
       "start:backend": ".\\workgreg-api\\venv\\Scripts\\python.exe workgreg-api/main.py --port 8000",
-      "start:frontend": "npm --prefix workgreg-app run tauri dev",
-      "dev": "concurrently -k -p \"[{name}]\" -c \"blue,green\" -n \"BACKEND,FRONTEND\" \"npm run start:backend\" \"npm run start:frontend\"",
       
-      "build:api": "powershell -Command \"cd workgreg-api; .\\venv\\Scripts\\pyinstaller --noconfirm --onefile --name app-backend main.py; New-Item -ItemType Directory -Force -Path ..\\workgreg-app\\src-tauri\\bin; Copy-Item -Force .\\dist\\app-backend.exe ..\\workgreg-app\\src-tauri\\bin\\workgreg-api-x86_64-pc-windows-msvc.exe\"",
-      "build:app": "npm --prefix workgreg-app run tauri build",
-      "build": "npm run build:api && npm run build:app"
+      "start:frontend:desktop": "npm --prefix workgreg-app run tauri dev",
+      "start:frontend:web": "npm --prefix workgreg-app run start",
+      "start:frontend": "npm run frontend:web",
+
+      "dev:web": "concurrently -k -p \"[{name}]\" -c \"blue,green\" -n \"BACKEND,FRONTEND\" \"npm run start:backend\" \"npm run start:frontend:web\"",
+      "dev:desktop": "concurrently -k -p \"[{name}]\" -c \"blue,green\" -n \"BACKEND,FRONTEND\" \"npm run start:backend\" \"npm run start:frontend:desktop\"",
+      "dev": "npm run dev:web",
+      
+      "build": "npm run build:app"
     },
     "devDependencies": {
       "concurrently": "^10.0.5"
