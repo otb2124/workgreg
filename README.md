@@ -4,8 +4,6 @@
 
 This repository contains the standalone frontend workspace built with **Angular 19+**[cite: 2]. It is designed as a single codebase that can be deployed as a standard web application or packaged into a cross-platform desktop application using **Tauri v2**[cite: 2].
 
-> **Note:** The backend service (`workgreg-api`) has been moved to its own repository. This client communicates with the backend via REST API endpoints authenticated with JWT bearer tokens[cite: 2].
-
 ---
 
 ## 🏗️ Architecture Overview
