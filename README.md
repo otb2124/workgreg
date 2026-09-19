@@ -10,7 +10,7 @@ This repository contains the standalone frontend workspace built with **Angular*
 
 * **Frontend Framework:** Angular Single Page Application (SPA) using signal-based state management and modern native control flow syntax (`@if`, `@for`)[cite: 2].
 * **Desktop Wrapper:** Tauri v2 Rust shell that packages the compiled Angular application into a lightweight native desktop executable[cite: 2].
-* **Backend Integration:** Connects externally to the cloud-hosted `workgreg-api` (FastAPI + PostgreSQL + pgvector)[cite: 2].
+* **Backend Integration:** Connects externally to the cloud-hosted `workgreg-api`[cite: 2].
 
 ---
 
