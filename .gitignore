@@ -4,7 +4,7 @@ Thumbs.db
 *.log
 
 # IDE settings
-.vscode/*
+.vscode
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -18,3 +18,28 @@ dist/
 # Local environment configuration
 .env
 .env.local
+
+# Node dependencies & Angular build outputs
+node_modules/
+dist/
+.angular/
+tmp/
+out-tsc/
+
+# Package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Rust / Tauri build artifacts
+src-tauri/target/
+
+# Generated PyInstaller sidecar binary inside Tauri
+# Keeps the folder tracked via .gitkeep while ignoring .exe binaries
+src-tauri/bin/*
+!src-tauri/bin/.gitkeep
+
+# IDE / OS junk
+.DS_Store
+Thumbs.db
