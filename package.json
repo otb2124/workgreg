@@ -3,6 +3,11 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+      
+      "install:frontend": "npm --prefix workgreg-app install",
+      "install:backend": "powershell -Command \"cd workgreg-api; if (-not (Test-Path venv)) { python -m venv venv }; .\\venv\\Scripts\\python.exe -m pip install --upgrade pip; .\\venv\\Scripts\\pip.exe install -r requirements.txt\"",
+      "install": "npm run install:frontend && npm run install:backend",
+
       "start:backend": ".\\workgreg-api\\venv\\Scripts\\python.exe workgreg-api/main.py --port 8000",
       
       "start:frontend:desktop": "npm --prefix workgreg-app run tauri dev",
