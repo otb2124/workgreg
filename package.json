@@ -1,26 +1,20 @@
 {
-    "name": "workgreg-monorepo",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-      
-      "install:frontend": "npm --prefix workgreg-app install",
-      "install:backend": "powershell -Command \"cd workgreg-api; if (-not (Test-Path venv)) { python -m venv venv }; .\\venv\\Scripts\\python.exe -m pip install --upgrade pip; .\\venv\\Scripts\\pip.exe install -r requirements.txt\"",
-      "install": "npm run install:frontend && npm run install:backend",
+  "name": "workgreg-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "install": "npm --prefix workgreg-app install",
 
-      "start:backend": ".\\workgreg-api\\venv\\Scripts\\python.exe workgreg-api/main.py --port 8000",
-      
-      "start:frontend:desktop": "npm --prefix workgreg-app run tauri dev",
-      "start:frontend:web": "npm --prefix workgreg-app run start",
-      "start:frontend": "npm run frontend:web",
+    "start:desktop": "npm --prefix workgreg-app run tauri dev",
+    "start:web": "npm --prefix workgreg-app run start",
+    "start": "npm run start:frontend:web",
 
-      "dev:web": "concurrently -k -p \"[{name}]\" -c \"blue,green\" -n \"BACKEND,FRONTEND\" \"npm run start:backend\" \"npm run start:frontend:web\"",
-      "dev:desktop": "concurrently -k -p \"[{name}]\" -c \"blue,green\" -n \"BACKEND,FRONTEND\" \"npm run start:backend\" \"npm run start:frontend:desktop\"",
-      "dev": "npm run dev:web",
-      
-      "build": "npm run build:app"
-    },
-    "devDependencies": {
-      "concurrently": "^10.0.5"
-    }
+    "dev:web": "npm run start:frontend:web",
+    "dev:desktop": "npm run start:frontend:desktop",
+    "dev": "npm run dev:web",
+
+    "build:web": "npm --prefix workgreg-app run build",
+    "build:desktop": "npm --prefix workgreg-app run tauri build",
+    "build": "npm run build:web"
   }
+}
